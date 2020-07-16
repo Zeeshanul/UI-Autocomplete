@@ -20,12 +20,11 @@ export class autocomplete {
 
   closeAllLists(elmnt?: any) {
     var x = document.getElementsByClassName("autocomplete-items");
-
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != this.InpElement) {
-        var y = x[i].parentNode!.removeChild(x[i]);
+    Array.from(x).forEach((y) => {
+      if (elmnt != y && elmnt != this.InpElement) {
+        y.parentNode?.removeChild(y);
       }
-    }
+    });
   }
 
   clickHandler1 = (e: any) => {
@@ -98,5 +97,3 @@ export class autocomplete {
     this.InpElement?.addEventListener("keydown", this.keydownHandler);
   };
 }
-// var myobj = new Autocomplete(inputEl, countries);
-// myobj.autocomplete();
